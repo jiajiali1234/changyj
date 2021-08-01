@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ths.boot</groupId>
+        <artifactId>web-boot-parent</artifactId>
+        <version>5.0-SNAPSHOT</version>
+    </parent>
+    <groupId>com.boot</groupId>
+    <artifactId>siluboot</artifactId>
+    <name>siluboot</name>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>思路开发平台JDP5.0</description>
+    <!--
+    Mvn archetype:create-from-project -DpackageName=ths.boot.project
+    切换到target\generated-sources\archetype下，执行mvn install 或者 mvn deploy
+
+    -->
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>ths.boot</groupId>
+            <artifactId>lib-boot-core</artifactId>
+        </dependency>
+<!--        <dependency>
+            <groupId>ths.boot</groupId>
+            <artifactId>lib-boot-job</artifactId>
+        </dependency>-->
+        <!-- ========= Spring Cloud Alibaba 依赖定义 ========== -->
+        <dependency>
+            <groupId>ths.boot</groupId>
+            <artifactId>lib-cloud-alibaba</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>ths.boot.CloudAlibabaDemoApp</mainClass>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
